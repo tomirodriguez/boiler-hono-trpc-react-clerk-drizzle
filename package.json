@@ -1,38 +1,28 @@
 {
-  "name": "training-app",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "check": "biome check ./src",
-    "preview": "vite preview",
-    "shadcn": "pnpm dlx shadcn@latest"
-  },
-  "dependencies": {
-    "@radix-ui/react-slot": "^1.2.0",
-    "@tailwindcss/vite": "^4.1.4",
-    "@tanstack/react-router": "^1.116.0",
-    "@tanstack/react-router-devtools": "^1.116.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.488.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.2.0",
-    "tailwindcss": "^4.1.4",
-    "tw-animate-css": "^1.2.5"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@tanstack/router-plugin": "^1.116.1",
-    "@types/node": "^22.14.1",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react-swc": "^3.8.0",
-    "globals": "^15.15.0",
-    "typescript": "~5.7.2",
-    "vite": "^6.2.0"
-  }
+	"name": "training-app",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"lint-staged": {
+		"apps/**/*.{js,ts,jsx,tsx}": [
+			"biome format --write .",
+			"biome check --write ."
+		],
+		"packages/**/*.{js,ts,jsx,tsx}": [
+			"biome format --write .",
+			"biome check --write ."
+		],
+		"*.json": ["biome format --write ."]
+	},
+	"scripts": {
+		"clean": "turbo clean && rm -rf node_modules",
+		"typecheck": "turbo typecheck"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"lint-staged": "^15.5.1",
+		"turbo": "^2.5.0",
+		"typescript": "~5.7.2"
+	},
+	"packageManager": "pnpm@10.8.1"
 }
