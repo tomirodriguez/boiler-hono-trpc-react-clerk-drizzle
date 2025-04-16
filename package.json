@@ -15,7 +15,9 @@
 		"*.json": ["biome format --write ."]
 	},
 	"scripts": {
+		"check": "turbo check",
 		"clean": "turbo clean && rm -rf node_modules",
+		"format": "turbo format",
 		"typecheck": "turbo typecheck"
 	},
 	"devDependencies": {
