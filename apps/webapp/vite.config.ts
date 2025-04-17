@@ -16,4 +16,12 @@ export default defineConfig({
 			"@": path.resolve(__dirname, "./src"),
 		},
 	},
+	server: {
+		proxy: {
+			"/api/trpc": {
+				target: "http://localhost:8787",
+				changeOrigin: true,
+			},
+		},
+	},
 });

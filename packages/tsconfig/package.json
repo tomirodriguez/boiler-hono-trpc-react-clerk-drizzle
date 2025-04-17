@@ -1,0 +1,9 @@
+{
+	"name": "@train/tsconfig",
+	"version": "1.0.0",
+	"description": "Base typescript config",
+	"keywords": ["typescript"],
+	"author": "Tomas Rodriguez",
+	"license": "ISC",
+	"files": ["tsconfig.base.json"]
+}

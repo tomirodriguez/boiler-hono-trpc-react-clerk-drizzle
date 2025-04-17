@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		/* Base Options: */
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"target": "ES2022",
+		"verbatimModuleSyntax": true,
+		"allowJs": true,
+		"resolveJsonModule": true,
+		"moduleDetection": "force",
+
+		/* Strictness */
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+
+		/* Transpiling: */
+		"moduleResolution": "Bundler",
+		"module": "ESNext",
+		"noEmit": true,
+
+		"lib": ["ES2022"],
+
+		/* Building library in monorepo */
+		"composite": true,
+		"declaration": true,
+		"declarationMap": true
+	},
+	"exclude": ["node_modules"]
+}

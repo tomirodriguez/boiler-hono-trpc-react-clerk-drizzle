@@ -1,0 +1,31 @@
+{
+	"name": "@train/server",
+	"version": "0.0.1",
+	"main": "src/index.ts",
+	"scripts": {
+		"dev": "bun --watch src/index.ts",
+		"typecheck": "tsc -noEmit",
+		"check": "biome check ./src",
+		"format": "biome format ./src"
+	},
+	"dependencies": {
+		"@hono/trpc-server": "^0.3.4",
+		"@trpc/server": "^11.1.0",
+		"hono": "^4.7.7",
+		"zod": "^3.24.3"
+	},
+	"devDependencies": {
+		"@train/tsconfig": "workspace:^",
+		"@types/bun": "^1.2.10",
+		"tsx": "^4.19.3"
+	},
+	"engines": {
+		"bun": ">=1.2.10"
+	},
+	"exports": {
+		"./trpc": {
+			"types": "./src/trpc/router.ts",
+			"default": "./src/trpc/router.ts"
+		}
+	}
+}
