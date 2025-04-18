@@ -4,14 +4,8 @@
 	"version": "0.0.0",
 	"type": "module",
 	"lint-staged": {
-		"apps/**/*.{js,ts,jsx,tsx}": [
-			"biome format --write .",
-			"biome check --write ."
-		],
-		"packages/**/*.{js,ts,jsx,tsx}": [
-			"biome format --write .",
-			"biome check --write ."
-		]
+		"apps/**/*.{js,ts,jsx,tsx}": ["biome format --write .", "biome check ."],
+		"packages/**/*.{js,ts,jsx,tsx}": ["biome format --write .", "biome check ."]
 	},
 	"scripts": {
 		"check": "turbo check",

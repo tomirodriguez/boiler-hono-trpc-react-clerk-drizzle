@@ -1,38 +1,38 @@
 {
-	"name": "@myapp/server",
-	"version": "0.0.1",
-	"main": "src/index.ts",
-	"scripts": {
-		"dev": "bun --watch src/index.ts",
-		"typecheck": "tsc -noEmit",
-		"check": "biome check ./src",
-		"format": "biome format ./src"
-	},
-	"dependencies": {
-		"@clerk/backend": "^1.29.1",
-		"@hono/clerk-auth": "^2.0.0",
-		"@hono/trpc-server": "^0.3.4",
-		"@oslojs/crypto": "^1.0.1",
-		"@oslojs/encoding": "^1.1.0",
-		"@myapp/database": "workspace:^",
-		"@trpc/server": "^11.1.0",
-		"drizzle-orm": "^0.42.0",
-		"hono": "^4.7.7",
-		"zod": "^3.24.3"
-	},
-	"devDependencies": {
-		"@myapp/tsconfig": "workspace:^",
-		"@types/bun": "^1.2.10",
-		"trpc-ui": "^1.0.15",
-		"tsx": "^4.19.3"
-	},
-	"engines": {
-		"bun": ">=1.2.10"
-	},
-	"exports": {
-		"./trpc": {
-			"types": "./src/routers/_app.ts",
-			"default": "./src/routers/_app.ts"
-		}
-	}
+  "name": "@myapp/server",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "typecheck": "tsc -noEmit",
+    "check": "biome check ./src",
+    "format": "biome format --write ."
+  },
+  "dependencies": {
+    "@clerk/backend": "^1.29.1",
+    "@hono/clerk-auth": "^2.0.0",
+    "@hono/trpc-server": "^0.3.4",
+    "@oslojs/crypto": "^1.0.1",
+    "@oslojs/encoding": "^1.1.0",
+    "@myapp/database": "workspace:^",
+    "@trpc/server": "^11.1.0",
+    "drizzle-orm": "^0.42.0",
+    "hono": "^4.7.7",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@myapp/tsconfig": "workspace:^",
+    "@types/bun": "^1.2.10",
+    "trpc-ui": "^1.0.15",
+    "tsx": "^4.19.3"
+  },
+  "engines": {
+    "bun": ">=1.2.10"
+  },
+  "exports": {
+    "./trpc": {
+      "types": "./src/routers/_app.ts",
+      "default": "./src/routers/_app.ts"
+    }
+  }
 }

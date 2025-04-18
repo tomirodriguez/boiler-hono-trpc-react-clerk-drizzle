@@ -8,9 +8,9 @@ import type { Context as HonoContext } from "hono";
  * Add fields here that the inner context brings.
  */
 interface CreateInnerContextOptions
-	extends Partial<FetchCreateContextFnOptions> {
-	userId?: string | null;
-	c: HonoContext;
+  extends Partial<FetchCreateContextFnOptions> {
+  userId?: string | null;
+  c: HonoContext;
 }
 
 /**
@@ -23,11 +23,11 @@ interface CreateInnerContextOptions
  * @see https://trpc.io/docs/v11/context#inner-and-outer-context
  */
 export async function createContextInner(opts: CreateInnerContextOptions) {
-	return {
-		db,
-		userId: opts.userId,
-		honoCtx: opts.c,
-	};
+  return {
+    db,
+    userId: opts.userId,
+    honoCtx: opts.c,
+  };
 }
 
 /**
@@ -36,16 +36,16 @@ export async function createContextInner(opts: CreateInnerContextOptions) {
  * @see https://trpc.io/docs/v11/context#inner-and-outer-context
  */
 export async function createContext(
-	opts: FetchCreateContextFnOptions,
-	c: HonoContext,
+  opts: FetchCreateContextFnOptions,
+  c: HonoContext,
 ) {
-	const auth = getAuth(c);
-	const contextInner = await createContextInner({ userId: auth?.userId, c });
+  const auth = getAuth(c);
+  const contextInner = await createContextInner({ userId: auth?.userId, c });
 
-	return {
-		...contextInner,
-		...opts,
-	};
+  return {
+    ...contextInner,
+    ...opts,
+  };
 }
 
 export type Context = Awaited<ReturnType<typeof createContext>>;
