@@ -97,6 +97,12 @@ pnpm dev:app
 
 ---
 
+## Extras
+
+A playground for TRPC queries and mutations is included. On development, you can access the [tRPC Panel](Http://localhost:8787/api/trpc/panel)
+
+---
+
 ## 🧪 Testing
 
 Coming soon...
