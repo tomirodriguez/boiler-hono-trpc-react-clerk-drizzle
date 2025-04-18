@@ -7,12 +7,24 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-	const greetingQuery = useQuery(trpc.hello.queryOptions());
+	const { data, isLoading, isError } = useQuery(trpc.user.list.queryOptions());
+
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
+
+	if (isError || !data) {
+		return <div>Ocurrió un error</div>;
+	}
 
 	return (
 		<div className="p-2">
 			<h3>Welcome Home!</h3>
-			<p>{greetingQuery.data?.greeting}</p>
+			{data.users.length === 0 ? (
+				<p>No hay usuarios creados</p>
+			) : (
+				<p>{data.users.map((user) => user.name).join(", ")}</p>
+			)}
 		</div>
 	);
 }

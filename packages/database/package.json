@@ -1,0 +1,43 @@
+{
+	"name": "@train/database",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"check": "biome check ./src",
+		"format": "biome format --write .",
+		"drop": "drizzle-kit drop",
+		"generate": "drizzle-kit generate",
+		"push": "npx drizzle-kit push",
+		"migrate": "drizzle-kit migrate",
+		"reset": "pnpm stop && rm -rf ../../pgdata/ && sleep 1 && pnpm start",
+		"start": "sh -c 'trap \"pnpm stop\" EXIT; docker compose up'",
+		"stop": "docker compose down",
+		"studio": "drizzle-kit studio",
+		"typecheck": "tsc --noEmit"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.8.1",
+	"dependencies": {
+		"dotenv": "^16.5.0",
+		"drizzle-orm": "^0.42.0",
+		"postgres": "^3.4.5"
+	},
+	"devDependencies": {
+		"@train/tsconfig": "workspace:^",
+		"drizzle-kit": "^0.31.0",
+		"tsx": "^4.19.3"
+	},
+	"exports": {
+		".": {
+			"types": "./src/index.ts",
+			"default": "./src/index.ts"
+		},
+		"./schemas": {
+			"types": "./src/schemas/index.ts",
+			"default": "./src/schemas/index.ts"
+		}
+	}
+}

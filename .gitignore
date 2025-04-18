@@ -32,3 +32,6 @@ dist-ssr
 
 # Cursor
 .cursorrules
+
+# Database data
+pgdata

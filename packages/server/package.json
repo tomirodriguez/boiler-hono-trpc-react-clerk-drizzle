@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@hono/trpc-server": "^0.3.4",
+		"@train/database": "workspace:^",
 		"@trpc/server": "^11.1.0",
 		"hono": "^4.7.7",
 		"zod": "^3.24.3"
@@ -24,8 +25,8 @@
 	},
 	"exports": {
 		"./trpc": {
-			"types": "./src/trpc/router.ts",
-			"default": "./src/trpc/router.ts"
+			"types": "./src/routers/_app.ts",
+			"default": "./src/routers/_app.ts"
 		}
 	}
 }
