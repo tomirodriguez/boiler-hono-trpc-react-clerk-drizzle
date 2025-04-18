@@ -1,3 +1,4 @@
+import { ClerkProvider } from "@clerk/clerk-react";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { StrictMode } from "react";
@@ -16,6 +17,13 @@ declare module "@tanstack/react-router" {
 	}
 }
 
+// Import your Publishable Key
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+if (!PUBLISHABLE_KEY) {
+	throw new Error("Missing Publishable Key");
+}
+
 const rootElement = document.getElementById("root");
 
 if (!rootElement) {
@@ -26,9 +34,11 @@ if (!rootElement.innerHTML) {
 	const root = createRoot(rootElement);
 	root.render(
 		<StrictMode>
-			<QueryClientProvider client={queryClient}>
-				<RouterProvider router={router} />
-			</QueryClientProvider>
+			<ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+				<QueryClientProvider client={queryClient}>
+					<RouterProvider router={router} />
+				</QueryClientProvider>
+			</ClerkProvider>
 		</StrictMode>,
 	);
 }

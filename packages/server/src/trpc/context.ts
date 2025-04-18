@@ -1,5 +1,7 @@
+import { getAuth } from "@hono/clerk-auth";
 import { db } from "@train/database";
 import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
+import type { Context as HonoContext } from "hono";
 
 /**
  * Defines your inner context shape.
@@ -7,7 +9,8 @@ import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
  */
 interface CreateInnerContextOptions
 	extends Partial<FetchCreateContextFnOptions> {
-	session: string | null;
+	userId?: string | null;
+	c: HonoContext;
 }
 
 /**
@@ -19,10 +22,11 @@ interface CreateInnerContextOptions
  *
  * @see https://trpc.io/docs/v11/context#inner-and-outer-context
  */
-export async function createContextInner(opts?: CreateInnerContextOptions) {
+export async function createContextInner(opts: CreateInnerContextOptions) {
 	return {
 		db,
-		session: opts?.session,
+		userId: opts.userId,
+		honoCtx: opts.c,
 	};
 }
 
@@ -31,9 +35,12 @@ export async function createContextInner(opts?: CreateInnerContextOptions) {
  *
  * @see https://trpc.io/docs/v11/context#inner-and-outer-context
  */
-export async function createContext(opts: FetchCreateContextFnOptions) {
-	const session = "111111";
-	const contextInner = await createContextInner({ session });
+export async function createContext(
+	opts: FetchCreateContextFnOptions,
+	c: HonoContext,
+) {
+	const auth = getAuth(c);
+	const contextInner = await createContextInner({ userId: auth?.userId, c });
 
 	return {
 		...contextInner,

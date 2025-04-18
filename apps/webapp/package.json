@@ -13,6 +13,7 @@
 		"shadcn": "pnpm dlx shadcn@latest"
 	},
 	"dependencies": {
+		"@clerk/clerk-react": "^5.28.2",
 		"@radix-ui/react-slot": "^1.2.0",
 		"@tailwindcss/vite": "^4.1.4",
 		"@tanstack/react-query": "^5.74.4",
