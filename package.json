@@ -19,7 +19,8 @@
 		"clean": "turbo clean && rm -rf node_modules",
 		"format": "turbo format",
 		"typecheck": "turbo typecheck",
-		"prepare": "husky"
+		"prepare": "husky",
+		"dev:app": "turbo dev --filter=webapp... --filter=@myapp/server..."
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
