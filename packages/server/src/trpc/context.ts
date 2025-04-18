@@ -1,5 +1,5 @@
 import { getAuth } from "@hono/clerk-auth";
-import { db } from "@train/database";
+import { db } from "@myapp/database";
 import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import type { Context as HonoContext } from "hono";
 

@@ -1,5 +1,5 @@
 {
-	"name": "@train/database",
+	"name": "@myapp/database",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -26,7 +26,7 @@
 		"postgres": "^3.4.5"
 	},
 	"devDependencies": {
-		"@train/tsconfig": "workspace:^",
+		"@myapp/tsconfig": "workspace:^",
 		"drizzle-kit": "^0.31.0",
 		"tsx": "^4.19.3"
 	},

@@ -1,10 +1,10 @@
+import { db } from "@myapp/database";
+import { type Session, sessionTable, userTable } from "@myapp/database/schemas";
 import { sha256 } from "@oslojs/crypto/sha2";
 import {
 	encodeBase32LowerCaseNoPadding,
 	encodeHexLowerCase,
 } from "@oslojs/encoding";
-import { db } from "@train/database";
-import { type Session, sessionTable, userTable } from "@train/database/schemas";
 import { eq } from "drizzle-orm";
 
 const SESSION_DURATION = 1000 * 60 * 60 * 24 * 30; // 30 days
